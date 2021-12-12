@@ -12,6 +12,10 @@ public class Member {
         this.grade = grade;
     }
 
+    public boolean isEqualGrade(final Grade grade) {
+        return this.grade == grade;
+    }
+
     public Long getId() {
         return id;
     }
