@@ -203,6 +203,9 @@
 
 - AppConfig 처럼 객체를 생성하고 관리하면서 의존관계를 연결하는 것을 IoC 컨테이너 혹은 DI 컨테이너라고 한다
 - 의존관계 주입에 초점을 두어 DI 컨테이너라고 주로 부른다 (= Assembler, Object Factory)
+- AppConfig = DI 컨테이너 = ApplicationContext
+
+
 
 
 
