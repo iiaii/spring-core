@@ -254,6 +254,18 @@
 - BeanFactory, ApplicationContext 를 스프링 컨테이너라고 한다
 
 
+### 스프링 빈 설정 메타 정보 (BeanDefinition)
+
+- 스프링은 다양한 설정 형식을 지원하는데 `BeanDefinition` 의 추상화를 통해 가능하게 한다
+- 역할과 구현을 개념적으로 나눈것!
+  - 자바코드, XML을 읽어서 BeanDefinition을 만들면된다
+  - 스프링 컨테이너는 자바코드인지 XML인지 몰라도 된다 (오직 BeanDefinition만 알면 된다)
+- `BeanDefinition` 을 빈 설정 메타정보라고 한다 
+  - `@Bean`, `<bean>` 당 각각 하나씩 메타정보가 생성된다
+- 스프링컨테이너는 이 메타정보(`BeanDefinition`)를 기반으로 스프링 빈을 생성한다
+
+
+
 
 
 
