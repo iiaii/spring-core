@@ -225,6 +225,34 @@
 - Object 타입으로 조회하면 모든 스프링 빈을 조회한다 
 
 
+### BeanFactory 와 ApplicationContext
+
+```
+<<Interface>>BeanFactory <- <<Interface>>ApplicationContext <- AnnotationConfigApplicationContext
+```
+
+##### BeanFactory
+
+- 스프링 컨테이너의 최상위 인터페이스이다
+- 스프링 빈을 관리하고 조회하는 역할을 담당한다
+- `getBean()` 제공
+
+##### ApplicationContext
+
+- BeanFactory 기능을 모두 상속받아서 제공
+- 빈을 관리하고 검색하는 기능을 BeanFactory가 제공해주는데 둘의 차이는?
+- 애플리케이션 개발에는 빈 관리 조회 뿐만아니라 수많은 부가기능이 필요하다
+  - 메시지 소스를 활용한 국제화 기능 (한국 -> 한국어, 일본 -> 일본어)
+  - 환경변수 (로컬, 개발, 운영 구분해서 처리)
+  - 애플리케이션 이벤트 (이벤트 발행 구독 모델을 편리하게 지원)
+  - 편리한 리소스 조회 (파일, 클래스패스, 외부 등에서 리소스를 편리하게 조회)
+
+정리하면
+- ApplicationContext 는 BeanFactory 의 기능을 상속받는다
+- ApplicationContext 는 빈 관리기능 + 편리한 부가기능을 제공한다
+- BeanFactory 를 직접 사용할 일은 거의 없다 (대부분 부가기능이 포함된 ApplicationContext 사용)
+- BeanFactory, ApplicationContext 를 스프링 컨테이너라고 한다
+
 
 
 
