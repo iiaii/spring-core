@@ -33,4 +33,18 @@ public class ConfigurationSingletonTest {
         assertThat(memberRepository).isSameAs(memberRepository1);
         assertThat(memberRepository2).isSameAs(memberRepository);
     }
+
+    @Test
+    @DisplayName("configuration secret")
+    public void configurationSecret() {
+        // given
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        // when
+        System.out.println("bean = " + bean.getClass());
+
+        // then
+
+    }
 }

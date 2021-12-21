@@ -300,6 +300,15 @@
 - 스프링 빈의 필드에 공유 값을 설정하면 정말 큰 장애가 발생할 수 있다!
 
 
+### @Configuration 
 
+```
+AppConfig <- AppConfig@CGLIB
+```
+
+- `@Configuration`이 붙은 클래스를 `ApplicationContext` 에서 꺼내서 출력하면 클래스 명에 CGLIB가 붙는다
+- 임의의 다른 클래스(`AppConfig@CGLIB`)가 싱글톤이 되도록 보장해준다 (스프링 컨테이너에 등록되어 있으면 가져오고 없으면 생성하도록)
+- `@Configuration`이 없다면 `@Bean`을 붙여도 싱글톤이 보장되지 않는다
+- `@Configuration`이 없다면 `@Bean`이 붙어있는 메서드를 호출할때마다 새로운 객체가 생성된다 
 
 
