@@ -1,5 +1,6 @@
 package com.example.springcore.scan;
 
+import com.example.springcore.AutoAppConfig;
 import com.example.springcore.member.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AutoAppConfig {
+public class AutoAppConfigTest {
 
     @Test
     @DisplayName("basicScan")
