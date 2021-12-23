@@ -315,4 +315,12 @@ AppConfig <- AppConfig@CGLIB
 ---
 # 컴포넌트 스캔
 
-
+- `@Bean` 은 메서드 레벨에서 직접 선언하고 `@Component`는 클래스 레벨에서 선언한다 (`@Component`는 스프링이 스캔하여 등록함)
+- 빈 등록을 명시적으로 하기에는 관리할 것이 너무 많은데 `@ComponentScan`과 `@AutoWired`를 통해 빈을 등록하고 주입한다
+- `@SpringBootApplication`에 `@ComponentScan`가 포함되어 있다 (기본적으로 현재 위치에서 하위 패키지를 모두 스캔함)
+- 컴포넌트 스캔은 다음이 추가로 대상에 포함된다
+  - `@Component`
+  - `@Controller`
+  - `@Service`
+  - `@Repository`
+  - `@Configuration`
