@@ -313,7 +313,7 @@ AppConfig <- AppConfig@CGLIB
 
 
 ---
-# 컴포넌트 스캔
+### 컴포넌트 스캔
 
 - `@Bean` 은 메서드 레벨에서 직접 선언하고 `@Component`는 클래스 레벨에서 선언한다 (`@Component`는 스프링이 스캔하여 등록함)
 - 빈 등록을 명시적으로 하기에는 관리할 것이 너무 많은데 `@ComponentScan`과 `@AutoWired`를 통해 빈을 등록하고 주입한다
@@ -326,3 +326,42 @@ AppConfig <- AppConfig@CGLIB
   - `@Configuration`
 - 컴포넌트 스캔 시 같은 컴포넌트 이름이 있으면 충돌이 발생한다
 - 기존에 자동등록과 수동등록 빈의 이름이 중복되는 경우 수동등록이 오버라이딩해버렸는데, 최근 스프링 부트에서는 이 경우에도 오류가 발생하도록 기본이 되었다
+
+
+---
+# 의존관계 주입 
+
+
+### 의존관계 주입 방법
+
+스프링은 컨테이너는 2가지 라이프 사이클을 가짐
+
+1. 모든 스프링 빈 등록
+2. 의존관계 주입
+
+##### 생성자 주입 (추천!)
+
+```java
+@AutoWired
+public OrderServiceImpl(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+}
+```
+
+- 생성자를 통해서 의존관계를 주입받음
+- 생성자 호출시점에 딱 1번만 호출되는 것이 보장
+- 불변, 필수 의존관계에 사용 (세터가 없어야함)
+- 생성자가 1개만 있으면 `@AutoWired`를 생략해도 자동으로 의존관계가 주입됨 
+- 생성자주입은 빈을 등록하면서 자동으로 주입된다
+
+
+##### 수정자 주입
+
+```java
+@AutoWired
+public void setMemberRepository(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+}
+```
+
+- 수정자 주입은 객체 생성 이후에 주입된다 (생성자 주입은 생성되면서 주입됨)
