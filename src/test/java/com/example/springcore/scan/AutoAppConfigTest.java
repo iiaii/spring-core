@@ -2,6 +2,7 @@ package com.example.springcore.scan;
 
 import com.example.springcore.AutoAppConfig;
 import com.example.springcore.member.MemberService;
+import com.example.springcore.order.OrderService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -19,8 +20,10 @@ public class AutoAppConfigTest {
 
         // when
         MemberService memberService = ac.getBean(MemberService.class);
+        OrderService orderService = ac.getBean(OrderService.class);
 
         // then
         assertThat(memberService).isInstanceOf(MemberService.class);
+        assertThat(orderService).isInstanceOf(OrderService.class);
     }
 }
