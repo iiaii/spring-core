@@ -365,3 +365,14 @@ public void setMemberRepository(MemberRepository memberRepository) {
 ```
 
 - 수정자 주입은 객체 생성 이후에 주입된다 (생성자 주입은 생성되면서 주입됨)
+
+
+##### 필드 주입
+
+```java
+@AutoWired
+private MemberRepository membmerRepository;
+```
+
+- 필드에 바로 주입하는 방식으로 편해보이지만 외부에서 변경이 불가능해서 안티패턴으로 분류된다
+- DI 프레임워크가 없으면 아무것도 할수 없다 (사용하지 말것! 사용한다면 테스트 코드정도에서!)
