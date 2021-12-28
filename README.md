@@ -431,5 +431,9 @@ private MemberRepository membmerRepository;
     - 초기화, 소멸 메서드의 이름 변경 불가
     - 고칠 수 없는 외부 라이브러리에 적용 불가
   - 설정 정보에 초기화 메서드, 종료 메서드 지정
+    - 메서드 이름을 자유롭게 변경 가능
+    - 스프링 빈이 스프링 코드에 의존하지 않음
+    - 외부 라이브러리에도 초기화 종료 메서드 적용가능 
+    - 종료 메서드를 추론해서 호출해준다 (close, shutdown 이름의 메서드, 안쓴다면 `destoryMethod=""`)
   - `@PostConstruct`, `@PreDestroy` 지원
 
