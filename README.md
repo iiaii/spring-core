@@ -426,7 +426,10 @@ private MemberRepository membmerRepository;
 
 
 - 스프링은 크게 3가지 방법으로 빈 생명주기 콜백을 지원
-  - 인터페이스 (InitializingBean, DisposableBean)
+  - 인터페이스 (InitializingBean, DisposableBean) - 거의 사용하지 않음
+    - 스프링 전 인터페이스에 의존해야함
+    - 초기화, 소멸 메서드의 이름 변경 불가
+    - 고칠 수 없는 외부 라이브러리에 적용 불가
   - 설정 정보에 초기화 메서드, 종료 메서드 지정
   - `@PostConstruct`, `@PreDestroy` 지원
 
