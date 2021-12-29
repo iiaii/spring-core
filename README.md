@@ -449,3 +449,5 @@ private MemberRepository membmerRepository;
   - request: 웹 요청이 들어오고 나갈때 까지 유지되는 스코프
   - session: 웹 세션이 생성되고 종료될 때까지 유지되는 스코프
   - application: 웹의 서블릿 컨텍스트와 같은 범위로 유지되는 스코프 
+
+
