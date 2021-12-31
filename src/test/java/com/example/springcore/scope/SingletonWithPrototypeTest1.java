@@ -3,6 +3,7 @@ package com.example.springcore.scope;
 import ch.qos.logback.core.net.server.Client;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
@@ -46,7 +47,7 @@ public class SingletonWithPrototypeTest1 {
 
         // then
         assertThat(count1).isEqualTo(1);
-        assertThat(count2).isEqualTo(2);
+        assertThat(count2).isEqualTo(1);
     }
 
     @Scope("singleton")
@@ -55,11 +56,15 @@ public class SingletonWithPrototypeTest1 {
         private final PrototypeBean prototypeBean;
 
         @Autowired
+        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+
+        @Autowired
         public ClientBean(final PrototypeBean prototypeBean) {
             this.prototypeBean = prototypeBean;
         }
 
         public int logic() {
+            PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
             prototypeBean.addCount();
             return prototypeBean.getCount();
         }
